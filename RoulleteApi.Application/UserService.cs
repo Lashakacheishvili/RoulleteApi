@@ -90,10 +90,10 @@ namespace RoulleteApi.Application
 
             var user = await _userManager.Users.SingleOrDefaultAsync(c => c.UserName == username);
 
-            var token = _tokenHelper.CreateToken(_JwtKey, DateTime.Now.AddMinutes(_tokenExpiresAfterInMinutes),
-                new Claim[] {
-                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
-                });
+            var userClaims = new Claim[] { new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()) };
+            var tokenExpiresAt = DateTime.Now.AddMinutes(_tokenExpiresAfterInMinutes);
+
+            var token = _tokenHelper.CreateToken(_JwtKey, tokenExpiresAt,userClaims);
 
             return new ServiceResponse<LoginResponseModel>().Ok(new LoginResponseModel(token));
         }
@@ -112,7 +112,7 @@ namespace RoulleteApi.Application
 
             if (_userRepository.NotExists(userId))
             {
-                return  UserNotFoundResponse<MakeBetResponseModel>(userId);
+                return UserNotFoundResponse<MakeBetResponseModel>(userId);
             }
 
             var user = _userRepository.GetById(userId, nameof(User.GameHistories));
@@ -136,9 +136,6 @@ namespace RoulleteApi.Application
             }
 
             user.SubtractBetAmountFromBalance(betAmountInCents);
-
-            // I could have passed betAmountInCents directly and don't multiply and divide by 100
-            // But I want it to be implicit, what is done here.
 
             var betAmountInMillyCents = betAmountInCents.ConvertCentsToMillyCents();
             var amountToPutInJackpot = betAmountInMillyCents * _amountPercentgeToPutInJackpot / 100;

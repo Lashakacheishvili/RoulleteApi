@@ -30,10 +30,10 @@ namespace RoulleteApi.StartupHelper
             }
             else
             {
-                var token = _tokenHelper.CreateToken(_JwtKey, DateTime.Now.AddMinutes(_tokenExpiresAfterInMinutes),
-                  new Claim[] {
-                    new Claim(ClaimTypes.NameIdentifier, context.User.GetUserIdFromPrincipal())
-                  });
+                var userClaims = new Claim[] { new Claim(ClaimTypes.NameIdentifier, context.User.GetUserIdFromPrincipal()) };
+                var tokenExpiresAt = DateTime.Now.AddMinutes(_tokenExpiresAfterInMinutes);
+
+                var token = _tokenHelper.CreateToken(_JwtKey, tokenExpiresAt, userClaims);
 
                 context.Response.OnStarting(state =>
                 {
