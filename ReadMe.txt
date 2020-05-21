@@ -1,3 +1,5 @@
+=====================================  Check "RoulleteApi\Additional Resources\Video Instructions" Folder  =============================
+
 Welcome here.
 
 This project is created for Singular. You can see the task in 'NET Task' folder.
@@ -19,8 +21,6 @@ SignalRClientForJackpot has just one goal, watch at Jackpot hub, that is registe
 
 You will see some Api tests in Additional Resoures/Postman Test Collection folder. Just import it in postman and run.
 Not all scenarios are tested, but small easy functionality is.
-
-By the time you read this, I will add some video instructions also, that will be in Additional Resoures/Video Instructions folder.
 
 Now Steps to install and run project Successfully:
 
