@@ -48,7 +48,7 @@ There is two more projects in the solution that can be started, <b>BetConcurrenc
 
 - Run the project and if everything is cool you will see the Swagger Documentation.
 
-You can also check for video instructions in <b>RoulleteApi\Additional Resources\Video Instructions<b>
+You can also check for video instructions in <b>RoulleteApi\Additional Resources\Video Instructions</b>
    
 ---
 
