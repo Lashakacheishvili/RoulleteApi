@@ -44,7 +44,7 @@ There is two more projects in the solution that can be started, <b>BetConcurrenc
 - run "update-database" command in package manager console, if you use visual visual studio. 
   Don't forget startup project should be RoulleteApi, but db context is in RoulleteApi.Repository.Ef project.
 
-<b>Note<b>: There is just one user in database, and regisration functionality is not added for now. Username: <b>gisaiashvili</b>, Password:<b>123456!Aa</b>
+<b>Note</b>: There is just one user in database, and regisration functionality is not added for now. Username: <b>gisaiashvili</b>, Password:<b>123456!Aa</b>
 
 - Run the project and if everything is cool you will see the Swagger Documentation.
 
@@ -62,7 +62,7 @@ You can also check for video instructions in <b>RoulleteApi\Additional Resources
 
 ## Testing
 
-You can check testing instructions in <b>RoulleteApi\Additional Resources\Video Instructions<b>
+You can check testing instructions in <b>RoulleteApi\Additional Resources\Video Instructions</b>
 
 You can test it by swagger doc or postman.
 If you decide to test with postman you don't need to configure it yourself, just import json from Additional Resoures/Postman Test Collection folder.
