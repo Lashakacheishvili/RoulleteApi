@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RoulleteApi.Common\RoulleteApi.Common.csproj" />
+    <ProjectReference Include="..\RoulleteApi.Repository\RoulleteApi.Repository.csproj" />
+    <ProjectReference Include="..\RoulleteApi.Services\RoulleteApi.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ge.singular.roulette">
+      <HintPath>ge.singular.roulette.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ge.singular.roulette.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

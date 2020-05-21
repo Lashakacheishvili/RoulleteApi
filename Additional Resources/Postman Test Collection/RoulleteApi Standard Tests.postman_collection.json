@@ -1,0 +1,1610 @@
+{
+	"info": {
+		"_postman_id": "e212b937-d080-4a85-82f9-7f8f867f8857",
+		"name": "RoulleteApi Standard Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "Login",
+							"item": [
+								{
+									"name": "When login is successfull",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "4a8a98d6-6613-4b2c-aa93-b51f994854bc",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "c45d8241-5bbb-4127-8b43-9072b9f1c7bb",
+												"exec": [
+													"const response = JSON.parse(responseBody);\r",
+													"pm.globals.set(\"accessToken\", response.accessToken);\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"tests[\"Access token is not empty\"] = response.accessToken.length > 0;\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"description": "Format should be 'Bearer jwt'. replace jwt with valid token",
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"username\": \"gisaiashvili\",\n    \"password\": \"123456!Aa\"\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/user/session",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"session"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"username\": \"<string>\",\n    \"password\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/session",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"session"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"username\": \"<string>\",\n    \"password\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/session",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"session"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n },\n \"result\": {\n  \"accessToken\": \"<string>\"\n }\n}"
+										}
+									]
+								},
+								{
+									"name": "When login fails",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "aae94132-9769-4c3a-b372-962e9bb98fe4",
+												"exec": [
+													"pm.test(\"Status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"username\": \"gisaiashvili\",\n    \"password\": \"2222222222\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/user/session",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"session"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Balance",
+							"item": [
+								{
+									"name": "When user succesffully gets his/her balance",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "fd2f0316-596e-43dd-af99-449693056000",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "bfa14223-4345-4d20-ad70-2c149a6dd6a3",
+												"exec": [
+													"const accessToken = pm.response.headers.get(\"X-Response-Access-Token\")\r",
+													"const response = JSON.parse(responseBody);\r",
+													"\r",
+													"pm.globals.set(\"accessToken\", accessToken);\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"tests[\"Access token from response header is not empty\"] = accessToken.length > 0;\r",
+													"tests[\"Balance is greater or equal to 0\"] = response.balanceInCents >= 0; "
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{accessToken}}",
+												"description": "Format should be 'Bearer jwt'. replace jwt with valid token"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/balance",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"balance"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/balance",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"balance"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/balance",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"balance"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/balance",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"balance"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n },\n \"result\": {\n  \"balanceInCents\": \"<long>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/balance",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"balance"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										}
+									]
+								},
+								{
+									"name": "When user is not authorized",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "8eadbca1-672e-4791-bda1-d5abcbfdf4d5",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "e6a5b4f2-7b7f-4cce-829e-7ab2a99c5e77",
+												"exec": [
+													"pm.test(\"Status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer e123455678990074832974983279482379423423",
+												"description": "Format should be 'Bearer jwt'. replace jwt with valid token"
+											},
+											{
+												"key": "",
+												"value": "",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/balance",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"balance"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/balance",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"balance"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/balance",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"balance"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/balance",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"balance"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/balance",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"balance"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n },\n \"result\": {\n  \"balanceInCents\": \"<long>\"\n }\n}"
+										}
+									]
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Bet",
+							"item": [
+								{
+									"name": "When user succesfully makes bet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "af3a06ef-cf9f-4fa1-85b3-7fbe8a5d8074",
+												"exec": [
+													"const accessToken = pm.response.headers.get(\"X-Response-Access-Token\")\r",
+													"pm.globals.set(\"accessToken\", accessToken);\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"\r",
+													"tests[\"Access token from response header is not empty\"] = accessToken.length > 0; "
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{accessToken}}",
+												"description": "Format should be 'Bearer jwt'. replace jwt with valid token"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"betString\": \"[{\\\"T\\\": \\\"v\\\", \\\"I\\\": 20, \\\"C\\\": 1, \\\"K\\\": 1}]\"\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/user/bet",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"bet"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": "",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"betString\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/bet",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"bet"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"betString\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/bet",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"bet"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"betString\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/bet",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"bet"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"betString\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/bet",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"bet"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n },\n \"result\": {\n  \"wonAmountInCents\": \"<long>\"\n }\n}"
+										}
+									]
+								},
+								{
+									"name": "When user is not authorized and tries to make bet",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "6ed91540-6bee-43d6-a16e-795d5c5f39a0",
+												"exec": [
+													"pm.test(\"Status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer 12312312adjahdjkhdjkh12kjkdh1kjjh1jdj1hkjd1hdjk1hdkj",
+												"description": "Format should be 'Bearer jwt'. replace jwt with valid token"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"betString\": \"[{\\\"T\\\": \\\"v\\\", \\\"I\\\": 20, \\\"C\\\": 1, \\\"K\\\": 1}]\"\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/user/bet",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"bet"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": "",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"betString\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/bet",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"bet"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n },\n \"result\": {\n  \"wonAmountInCents\": \"<long>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"betString\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/bet",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"bet"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"betString\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/bet",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"bet"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"betString\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/bet",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"bet"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										}
+									]
+								},
+								{
+									"name": "When user is authorized but bet string is invalid",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "728f7919-76aa-4b46-9e17-e248d3fb3720",
+												"exec": [
+													"const accessToken = pm.response.headers.get(\"X-Response-Access-Token\")\r",
+													"pm.globals.set(\"accessToken\", accessToken);\r",
+													"\r",
+													"pm.test(\"Status code is 422\", function () {\r",
+													"    pm.response.to.have.status(422);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"description": "Format should be 'Bearer jwt'. replace jwt with valid token",
+												"key": "Authorization",
+												"value": "Bearer {{accessToken}}"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"betString\": \"Invalid string is here\"\n}",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/user/bet",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"bet"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": "",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"betString\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/bet",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"bet"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"betString\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/bet",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"bet"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"betString\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/bet",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"bet"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n },\n \"result\": {\n  \"wonAmountInCents\": \"<long>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"betString\": \"<string>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/bet",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"bet"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										}
+									]
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "GameHistory",
+							"item": [
+								{
+									"name": "When user succesfully gets his/her game history",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2ac17c69-87e3-44d0-b0d1-4f2878581b93",
+												"exec": [
+													"const accessToken = pm.response.headers.get(\"X-Response-Access-Token\")\r",
+													"pm.globals.set(\"accessToken\", accessToken);\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"tests[\"Access token from response header is not empty\"] = accessToken.length > 0; "
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{accessToken}}",
+												"description": "Format should be 'Bearer jwt'. replace jwt with valid token"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/history",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"history"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/history",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"history"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/history",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"history"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/history",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"history"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/history",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"history"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n },\n \"result\": [\n  {\n   \"spinId\": \"<guid>\",\n   \"id\": \"<guid>\",\n   \"winningNumber\": \"<integer>\",\n   \"betAmountInCents\": \"<long>\",\n   \"wonAmountInCents\": \"<long>\",\n   \"createdAt\": \"<dateTime>\",\n   \"updatedAt\": \"<dateTime>\",\n   \"betString\": \"<string>\"\n  },\n  {\n   \"spinId\": \"<guid>\",\n   \"id\": \"<guid>\",\n   \"winningNumber\": \"<integer>\",\n   \"betAmountInCents\": \"<long>\",\n   \"wonAmountInCents\": \"<long>\",\n   \"createdAt\": \"<dateTime>\",\n   \"updatedAt\": \"<dateTime>\",\n   \"betString\": \"<string>\"\n  }\n ]\n}"
+										}
+									]
+								},
+								{
+									"name": "When user is not authorized and tryes to get his/her history",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "d2c6237b-ed8e-4c2d-95c4-802c866a15c5",
+												"exec": [
+													"pm.test(\"Status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"description": "Format should be 'Bearer jwt'. replace jwt with valid token",
+												"key": "Authorization",
+												"value": "Bearer 312312312312312312312312312e312312e123"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/history",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"history"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/history",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"history"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/history",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"history"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/history",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"history"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n },\n \"result\": [\n  {\n   \"spinId\": \"<guid>\",\n   \"id\": \"<guid>\",\n   \"winningNumber\": \"<integer>\",\n   \"betAmountInCents\": \"<long>\",\n   \"wonAmountInCents\": \"<long>\",\n   \"createdAt\": \"<dateTime>\",\n   \"updatedAt\": \"<dateTime>\",\n   \"betString\": \"<string>\"\n  },\n  {\n   \"spinId\": \"<guid>\",\n   \"id\": \"<guid>\",\n   \"winningNumber\": \"<integer>\",\n   \"betAmountInCents\": \"<long>\",\n   \"wonAmountInCents\": \"<long>\",\n   \"createdAt\": \"<dateTime>\",\n   \"updatedAt\": \"<dateTime>\",\n   \"betString\": \"<string>\"\n  }\n ]\n}"
+										},
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/history",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"history"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+										}
+									]
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get Current Jackpot Amount",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "655c2222-9a4c-4de8-9755-75a8c5a33f53",
+								"exec": [
+									"const accessToken = pm.response.headers.get(\"X-Response-Access-Token\")\r",
+									"pm.globals.set(\"accessToken\", accessToken);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"description": "Format should be 'Bearer jwt'. replace jwt with valid token"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/jackpot",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"jackpot"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/jackpot",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jackpot"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n }\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/jackpot",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jackpot"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"isSuccess\": \"<boolean>\",\n \"failed\": \"<boolean>\",\n \"serviceErrorMessage\": {\n  \"code\": \"<integer>\",\n  \"description\": \"<string>\"\n },\n \"result\": {\n  \"id\": \"<integer>\",\n  \"amountInMillyCents\": \"<long>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"concurrencyStamp\": \"<byte>\"\n }\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"variable": [
+		{
+			"id": "baseUrl",
+			"key": "baseUrl",
+			"value": "http://localhost:1010",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
