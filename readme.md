@@ -1,6 +1,6 @@
 
 <p align="center">
-  <h1 align="center">RouletteApi</h1>
+  <h4 align="center">RouletteApi</h4>
   <p align="center">
     Application created for Singular. You can see the actual task in 'NET Task' folder.
     <br />
