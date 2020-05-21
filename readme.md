@@ -57,7 +57,7 @@ You can also check for video instructions in <b>RoulleteApi\Additional Resources
 
 ```c#
 -.Net core 3.1 and MSSQL SERVER should be installed. 
-- You may need to change connection string, just target the server where you have permission to create database
+-You may need to change connection string, just target the server where you have permission to create database
 ```
 
 ## Testing
