@@ -1,8 +1,5 @@
 
 <p align="center">
-  <a href="#">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS49HPDAbme5yIhOyFf-rOKCAzmXPCOdQyqMsbdE0tP61uE8ccP&usqp=CAU" alt="Logo" width="110" height="110">
-  </a>
   <h1 align="center">RouletteApi</h1>
   <p align="center">
     Application created for Singular. You can see the actual task in 'NET Task' folder.
