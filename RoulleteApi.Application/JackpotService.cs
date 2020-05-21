@@ -30,7 +30,8 @@ namespace RoulleteApi.Application
             var jackpot = jackpotResult.Result;
             var jackpotModel = new JackpotModel(jackpot.Id, jackpot.AmountInMillyCents, jackpot.ConcurrencyStamp, jackpot.CreatedAt, jackpot.UpdatedAt);
 
-            return new ServiceResponse<JackpotModel>().Ok(jackpotModel);
+            return new ServiceResponse<JackpotModel>()
+                .Ok(jackpotModel);
         }
 
         // Handling of concurrency updates of jackpot amount is done using database concurrency stamp.
@@ -79,7 +80,8 @@ namespace RoulleteApi.Application
 
             } while (updateJackpot);
 
-            return new ServiceResponse().Ok();
+            return new ServiceResponse()
+                .Ok();
         }
 
         private async Task<ServiceResponse<Jackpot>> GetJackpotAsync()
@@ -88,7 +90,8 @@ namespace RoulleteApi.Application
 
             return jackpot == null ?
                 JackpotNotFoundResponse<Jackpot>()
-                : new ServiceResponse<Jackpot>().Ok(jackpot);
+                : new ServiceResponse<Jackpot>()
+                .Ok(jackpot);
         }
 
         private ServiceResponse<T> JackpotNotFoundResponse<T>()

@@ -61,7 +61,8 @@ namespace RoulleteApi.Application
             new GameHistoryModel(c.Id, c.SpinId, c.BetString, c.WinningNumber, c.BetAmountInCents, c.WonAmountInCents, c.CreatedAt, c.UpdatedAt))
                 .OrderByDescending(c => c.CreatedAt).ToList();
 
-            return new ServiceResponse<List<GameHistoryModel>>().Ok(list);
+            return new ServiceResponse<List<GameHistoryModel>>()
+                .Ok(list);
         }
 
         public ServiceResponse<UserBalanceResponseModel> GetUserBalanceInCents(Guid userId)
@@ -73,8 +74,8 @@ namespace RoulleteApi.Application
 
             var user = _userRepository.GetById(userId);
 
-            return new ServiceResponse<UserBalanceResponseModel>().
-                    Ok(new UserBalanceResponseModel(user.BalanceInCents));
+            return new ServiceResponse<UserBalanceResponseModel>()
+                .Ok(new UserBalanceResponseModel(user.BalanceInCents));
         }
 
         public async Task<ServiceResponse<LoginResponseModel>> LoginAsync(string username, string password)
@@ -93,9 +94,10 @@ namespace RoulleteApi.Application
             var userClaims = new Claim[] { new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()) };
             var tokenExpiresAt = DateTime.Now.AddMinutes(_tokenExpiresAfterInMinutes);
 
-            var token = _tokenHelper.CreateToken(_JwtKey, tokenExpiresAt,userClaims);
+            var token = _tokenHelper.CreateToken(_JwtKey, tokenExpiresAt, userClaims);
 
-            return new ServiceResponse<LoginResponseModel>().Ok(new LoginResponseModel(token));
+            return new ServiceResponse<LoginResponseModel>()
+                .Ok(new LoginResponseModel(token));
         }
 
         public async Task<ServiceResponse<MakeBetResponseModel>> MakeBetAsync(Guid userId, string betString)
@@ -164,7 +166,8 @@ namespace RoulleteApi.Application
                         .ChangesNotSaved("Something went wrong, could not update user data"));
             }
 
-            return new ServiceResponse<MakeBetResponseModel>().Ok(new MakeBetResponseModel(wonAmountInCents));
+            return new ServiceResponse<MakeBetResponseModel>()
+                .Ok(new MakeBetResponseModel(wonAmountInCents));
         }
 
         private ServiceResponse<T> UserNotFoundResponse<T>(Guid userId)

@@ -9,9 +9,9 @@ namespace RoulleteApi.Services.Models
         public byte[] ConcurrencyStamp { get; set; }
 
         public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt{ get; set; }
+        public DateTime UpdatedAt { get; set; }
 
-        public JackpotModel(int  id, long amountInMillyCents, byte[] concurrencyStamp, DateTime createdAt, DateTime updatedAt)
+        public JackpotModel(int id, long amountInMillyCents, byte[] concurrencyStamp, DateTime createdAt, DateTime updatedAt)
         {
             Id = id;
             AmountInMillyCents = amountInMillyCents;

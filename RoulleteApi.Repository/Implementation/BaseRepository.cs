@@ -14,7 +14,7 @@ namespace RoulleteApi.Repository.Implementation
         where T : class, IBaseEntity<IdType>
     {
         protected readonly RoulleteDbContext _context;
-        public  BaseRepository(RoulleteDbContext context)
+        public BaseRepository(RoulleteDbContext context)
         {
             _context = context;
         }
@@ -31,22 +31,22 @@ namespace RoulleteApi.Repository.Implementation
 
         public virtual IdType Create(T entity)
         {
-            var created =_context.Set<T>().Add(entity);
+            var created = _context.Set<T>().Add(entity);
             return created.Entity.Id;
         }
 
         public virtual void Update(T entity)
         {
             entity.UpdatedAt = DateTime.UtcNow;
-           _context.Set<T>().Update(entity);
+            _context.Set<T>().Update(entity);
         }
 
         public virtual void Delete(IdType id)
         {
             var entity = GetById(id);
 
-            entity.UpdatedAt= DateTime.UtcNow;
-            entity.IsDeleted= true;
+            entity.UpdatedAt = DateTime.UtcNow;
+            entity.IsDeleted = true;
 
             _context.Set<T>().Update(entity);
         }

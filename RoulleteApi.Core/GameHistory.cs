@@ -9,7 +9,7 @@ namespace RoulleteApi.Core
         public int WinningNumber { get; protected set; }
         public long BetAmountInCents { get; protected set; }
         public long WonAmountInCents { get; protected set; }
-        public Guid? UserId{ get; set; }
+        public Guid? UserId { get; set; }
         public User User { get; set; }
 
         protected GameHistory() { }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace SignalRClientForJackpot
 {
     // Just start it, to be updated about jackpot.
-    
+
     class Program
     {
         static async Task Main(string[] args)

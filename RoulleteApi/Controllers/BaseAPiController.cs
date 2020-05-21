@@ -19,7 +19,7 @@ namespace RoulleteApi.Controllers
 
         protected IActionResult HandleResult<T>(ServiceResponse<T> serviceResult)
             => serviceResult.IsSuccess
-             ? Ok(serviceResult.Result)
+            ? Ok(serviceResult.Result)
             : TransformServiceErrorToHttpStatusCode(serviceResult.ServiceErrorMessage);
     }
 }

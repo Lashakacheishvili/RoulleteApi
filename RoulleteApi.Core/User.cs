@@ -11,7 +11,7 @@ namespace RoulleteApi.Core
         public bool IsDeleted { get; set; }
 
         public long BalanceInCents { get; protected set; }
-        
+
         public HashSet<GameHistory> GameHistories { get; set; }
 
         public User()

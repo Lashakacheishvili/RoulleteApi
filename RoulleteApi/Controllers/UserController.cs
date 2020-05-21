@@ -24,8 +24,8 @@ namespace RoulleteApi.Controllers
         [AllowAnonymous]
         [ProducesResponseType(400, Type = typeof(ServiceResponse))]
         [ProducesResponseType(200, Type = typeof(ServiceResponse<LoginResponseModel>))]
-        public async Task<IActionResult> Login([FromBody]UserLoginModel model)
-        => HandleResult(await _userService.LoginAsync(model.Username, model.Password));
+        public async Task<IActionResult> Login([FromBody] UserLoginModel model)
+            => HandleResult(await _userService.LoginAsync(model.Username, model.Password));
 
         [HttpGet("balance")]
         [ProducesResponseType(400, Type = typeof(ServiceResponse))]
@@ -33,14 +33,14 @@ namespace RoulleteApi.Controllers
         [ProducesResponseType(404, Type = typeof(ServiceResponse))]
         [ProducesResponseType(200, Type = typeof(ServiceResponse<UserBalanceResponseModel>))]
         public IActionResult GetUserBalance()
-        => HandleResult( _userService.GetUserBalanceInCents(UserId));
+            => HandleResult(_userService.GetUserBalanceInCents(UserId));
 
         [HttpPost("bet")]
         [ProducesResponseType(400, Type = typeof(ServiceResponse))]
         [ProducesResponseType(401, Type = typeof(ServiceResponse))]
         [ProducesResponseType(404, Type = typeof(ServiceResponse))]
         [ProducesResponseType(200, Type = typeof(ServiceResponse<MakeBetResponseModel>))]
-        public async Task<IActionResult> MakeBet([FromBody]BetModel model)
+        public async Task<IActionResult> MakeBet([FromBody] BetModel model)
             => HandleResult(await _userService.MakeBetAsync(UserId, model.BetString));
 
         [HttpGet("history")]

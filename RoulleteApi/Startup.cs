@@ -44,7 +44,7 @@ namespace RoulleteApi
 
             services.AddSignalR();
             services.AddHostedService<JackpotWatcher>();
-            
+
             services.AddTransient<TokenHelper>();
         }
 
