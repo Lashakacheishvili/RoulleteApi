@@ -1,5 +1,5 @@
 
-======> Check "RoulleteApi\Additional Resources\Video Instructions" Folder  <=========
+======> VIDEO INSTRUCTIONS: "RoulleteApi\Additional Resources\Video Instructions"  <=========
 
 Welcome here.
 
