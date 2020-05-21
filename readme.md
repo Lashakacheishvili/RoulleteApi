@@ -32,6 +32,12 @@ There is two more projects in the solution that can be started, <b>BetConcurrenc
 
 ---
 
+## Prerequisites
+
+-.Net core 3.1 and MSSQL SERVER should be installed. 
+-You may need to change connection string, just target the server where you have permission to create database
+
+---
 
 ## Installation
 - Clone github repository, or download and unzip it. 
@@ -48,12 +54,6 @@ There is two more projects in the solution that can be started, <b>BetConcurrenc
 You can also check for video instructions in <b>RoulleteApi\Additional Resources\Video Instructions</b>
    
 ---
-
-
-## Prerequisites
-
--.Net core 3.1 and MSSQL SERVER should be installed. 
--You may need to change connection string, just target the server where you have permission to create database
 
 ## Testing
 
