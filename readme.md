@@ -44,7 +44,7 @@ There is two more projects in the solution that can be started, <b>BetConcurrenc
 - run "update-database" command in package manager console, if you use visual visual studio. 
   Don't forget startup project should be RoulleteApi, but db context is in RoulleteApi.Repository.Ef project.
 
-<b>Note</b>: There is just one user in database, and regisration functionality is not added for now. Username: <b>gisaiashvili</b>, Password:<b>123456!Aa</b>
+<b>Note</b>: There is just one user in database, and regisration functionality is not added for now. <b>Username:</b> gisaiashvili, <b>Password:</b>123456!Aa
 
 - Run the project and if everything is cool you will see the Swagger Documentation.
 
@@ -73,8 +73,8 @@ Getting access token is possible from <b>user/session</b> post endpoint, by pass
 Tokens format is 'Bearer accessToken'. e.x. 'Bearer eydasdasjlkdj32oijd209dj239jd23d23d23nd92nvu8r934v3r98nr3'
 If you are testing it from swagger click Authorize and paste token there, or add this token in Authorization header. Again, don't forget to add 'Bearer ' before token
 
-Note: <b>The tokens life lasts for five minutes, 
-	  If authorized client makes a new api call, new token will be returned in response header X-Response-Access-Token.</b>
+<b>Note:</b> The tokens life lasts for five minutes, 
+	     If authorized client makes a new api call, new token will be returned in response header X-Response-Access-Token.
    
 ---
 
