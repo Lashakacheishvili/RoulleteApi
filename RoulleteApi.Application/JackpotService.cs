@@ -61,11 +61,11 @@ namespace RoulleteApi.Application
                 {
                     jackpot.IncreaseJackpotAmount(amountInMillyCents);
                     _jackpotRepository.Update(jackpot);
-                    var saveResult = await _jackpotRepository.SaveChangesAsync();
+                    var rowsUpdated = await _jackpotRepository.SaveChangesAsync();
 
                     updateJackpot = false;
 
-                    if (saveResult == 0)
+                    if (rowsUpdated == 0)
                     {
                         return new ServiceResponse()
                                .Fail(new ServiceErrorMessage()

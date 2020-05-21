@@ -24,7 +24,7 @@ namespace RoulleteApi.Application
             {
                 while (!cancellationToken.IsCancellationRequested)
                 {
-                    Thread.Sleep(1000);
+                    Thread.Sleep(500);
                     using var scope = _serviceScopeFactory.CreateScope();
                     var jackpotService = scope.ServiceProvider.GetRequiredService<IJackpotService>();
                     var jackpotResult = await jackpotService.GetAsync();

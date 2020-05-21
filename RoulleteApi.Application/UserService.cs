@@ -108,7 +108,7 @@ namespace RoulleteApi.Application
             // Checking if user exists for the current spacial case:
             // Imagine that I have logged in, got access token and started playing unethically.
             // I was got cought by administrators and disabled my user immediately (IsDeleted = true for now).
-            // Without this check user variable that I get below will be null and nullreferance error will occure.
+            // Without this check user, variable that I get below, will be null and nullreferance error will occure.
 
             if (_userRepository.NotExists(userId))
             {
@@ -137,11 +137,12 @@ namespace RoulleteApi.Application
 
             user.SubtractBetAmountFromBalance(betAmountInCents);
 
-            // I could have passed betAmountInCents directly and dont multiply and divide by 100
-            // But I want to be implicit, what is done here.
+            // I could have passed betAmountInCents directly and don't multiply and divide by 100
+            // But I want it to be implicit, what is done here.
 
-            var betAmountInMillyCents = (betAmountInCents * 100);
-            var increaceJackpotResult = await _jackpotService.IncreaseJackpotAmountAsync(betAmountInMillyCents * _amountPercentgeToPutInJackpot / 100);
+            var betAmountInMillyCents = betAmountInCents.ConvertCentsToMillyCents();
+            var amountToPutInJackpot = betAmountInMillyCents * _amountPercentgeToPutInJackpot / 100;
+            var increaceJackpotResult = await _jackpotService.IncreaseJackpotAmountAsync(amountToPutInJackpot);
 
             if (increaceJackpotResult.Failed)
             {
@@ -157,9 +158,9 @@ namespace RoulleteApi.Application
             user.AddAmountToBalance(wonAmountInCents);
 
             _userRepository.Update(user);
-            var userChangesSaveResult = await _userRepository.SaveChangesAsync();
+            var rowsUpdated = await _userRepository.SaveChangesAsync();
 
-            if (userChangesSaveResult == 0)
+            if (rowsUpdated == 0)
             {
                 return new ServiceResponse<MakeBetResponseModel>()
                         .Fail(new ServiceErrorMessage()
