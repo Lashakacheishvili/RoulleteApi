@@ -79,4 +79,4 @@ If you are testing it from swagger click Authorize and paste token there, or add
 ## Author
 👤 **Giorgi Isaiashvili**
 
-- Linkedin: [@giorgi-isaiashvili](https://www.linkedin.com/in/isaiashvili/)
+- Linkedin: [@Giorgi Isaiashvili](https://www.linkedin.com/in/isaiashvili/)
