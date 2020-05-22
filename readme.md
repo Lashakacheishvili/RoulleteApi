@@ -1,6 +1,6 @@
 
   <h2>RouletteApi</h2>
-    Application created for Singular. You can see the actual task in <b>RoulleteApi/Additional Resources/NET Task</b> folder.
+    Application created for Singular as task project.
     <br />
 
  
