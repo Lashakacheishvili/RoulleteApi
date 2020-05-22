@@ -1,6 +1,6 @@
 
   <h2>RouletteApi</h2>
-    Application created for "Company" as task project.
+    Application is created for "Company" as task project.
     <br />
 
  
