@@ -44,7 +44,7 @@ There is two more projects in the solution that can be started, <b>BetConcurrenc
 - Make startup project RoulleteApi.
 - Here is the connection string: Data Source=localhost;Initial Catalog=RoulleteDb; integrated security=true
   Make sure you have MSSQL Server with access of creating database. If localhost don't work for you configure it as you wish.
-- run "update-database" command in package manager console, if you use visual visual studio. 
+- run "update-database" command in package manager console, if you use visual studio. 
   Don't forget startup project should be RoulleteApi, but db context is in RoulleteApi.Repository.Ef project.
 
 <b>Note</b>: There is just one user in database, and regisration functionality is not added for now. <b>Username:</b> gisaiashvili, <b>Password</b>: 123456!Aa
