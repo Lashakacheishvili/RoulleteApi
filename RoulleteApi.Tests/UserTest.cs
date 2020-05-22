@@ -1,6 +1,4 @@
-using RoulleteApi.Common;
 using RoulleteApi.Core;
-using System;
 using Xunit;
 
 namespace RoulleteApi.Tests
@@ -16,7 +14,6 @@ namespace RoulleteApi.Tests
         {
             var user = new User();
 
-            // Initialize users current balance
             user.AddAmountToBalance(currenctBalance);
             user.AddAmountToBalance(valueToAdd);
 
@@ -45,10 +42,8 @@ namespace RoulleteApi.Tests
         public void Positive_Balance_Is_Subtracted_Correctly(long currenctBalance, long valueToSubtract, long expectedBalance)
         {
             var user = new User();
-
-            // Initialize users current balance
+            
             user.AddAmountToBalance(currenctBalance);
-
             user.SubtractAmountFromBalance(valueToSubtract);
 
             Assert.Equal(user.BalanceInCents, expectedBalance);
