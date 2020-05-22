@@ -29,9 +29,9 @@ namespace RoulleteApi.Common
 
         public static long ConvertMillyCentsToCents(this long targetValue)
         {
-            if (targetValue < CentUnitInMillyCents)
+            if (targetValue < 0)
             {
-                throw new ArgumentException($"{targetValue} is too small");
+                throw new ArgumentException($"{targetValue} is less than zero, take positive number");
             }
 
             return targetValue / CentUnitInMillyCents;
