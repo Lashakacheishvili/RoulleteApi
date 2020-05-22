@@ -26,12 +26,12 @@ namespace RoulleteApi.Core
         {
             if (increaseAmountInMillyCents < 0)
             {
-                throw new InvalidJackpotIncreaseAmountException($"{increaseAmountInMillyCents} is less than zero, choose positive number");
+                throw new InvalidJackpotIncreaseAmountException(increaseAmountInMillyCents, $"{increaseAmountInMillyCents} is less than zero, choose positive number");
             }
 
             if (AmountInMillyCents > long.MaxValue - increaseAmountInMillyCents)
             {
-                throw new InvalidJackpotIncreaseAmountException($"{increaseAmountInMillyCents} is too large to store");
+                throw new InvalidJackpotIncreaseAmountException(increaseAmountInMillyCents, $"{increaseAmountInMillyCents} is too large to store");
             }
 
             AmountInMillyCents += increaseAmountInMillyCents;

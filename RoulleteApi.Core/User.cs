@@ -31,7 +31,7 @@ namespace RoulleteApi.Core
         {
             if (betAmountInCents < 0)
             {
-                throw new InvalidBetAmountException($"{betAmountInCents} is less than zero, choose positive number");
+                throw new InvalidBetAmountException(betAmountInCents, $"{betAmountInCents} is less than zero, choose positive number");
             }
 
             BalanceInCents -= betAmountInCents;
@@ -42,7 +42,7 @@ namespace RoulleteApi.Core
         {
             if (amountToAddInCents < 0)
             {
-                throw new InvalidBetAmountException($"{amountToAddInCents} is less than zero, choose positive number");
+                throw new InvalidBetAmountException(amountToAddInCents, $"{amountToAddInCents} is less than zero, choose positive number");
             }
 
             BalanceInCents += amountToAddInCents;
