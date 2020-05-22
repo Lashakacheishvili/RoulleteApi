@@ -77,6 +77,6 @@ If you are testing it from swagger click Authorize and paste token there, or add
 
 
 ## Author
-🧔 **Giorgi Isaiashvili**
+ 🧔 **Giorgi Isaiashvili**
 
 - Linkedin: [Giorgi Isaiashvili](https://www.linkedin.com/in/isaiashvili/)
