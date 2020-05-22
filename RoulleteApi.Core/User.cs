@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using RoulleteApi.Common.Exceptions;
 using System;
 using System.Collections.Generic;
 
@@ -30,7 +31,7 @@ namespace RoulleteApi.Core
         {
             if (betAmountInCents < 0)
             {
-                throw new ArgumentException($"{betAmountInCents} is less than zero, choose positive number");
+                throw new InvalidBetAmountException($"{betAmountInCents} is less than zero, choose positive number");
             }
 
             BalanceInCents -= betAmountInCents;
@@ -41,7 +42,7 @@ namespace RoulleteApi.Core
         {
             if (amountToAddInCents < 0)
             {
-                throw new ArgumentException($"{amountToAddInCents} is less than zero, choose positive number");
+                throw new InvalidBetAmountException($"{amountToAddInCents} is less than zero, choose positive number");
             }
 
             BalanceInCents += amountToAddInCents;

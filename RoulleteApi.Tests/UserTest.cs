@@ -37,7 +37,7 @@ namespace RoulleteApi.Tests
         [Theory]
         [InlineData(100, 1, 99)]
         [InlineData(long.MaxValue, long.MaxValue, 0)]
-        [InlineData(0, long.MaxValue - 1, long.MinValue)]
+        [InlineData(0, long.MaxValue, long.MinValue + 1)]
         [InlineData(1, 0, 1)]
         public void Positive_Balance_Is_Subtracted_Correctly(long currenctBalance, long valueToSubtract, long expectedBalance)
         {
