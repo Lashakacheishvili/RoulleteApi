@@ -50,8 +50,10 @@ There is two more projects in the solution that can be started, <b>BetConcurrenc
 
 <b>Note</b>: There is just one user in database, and regisration functionality is not added for now.
 
-	   <b>Username:</b> gisaiashvili
-           <b>Password</b>: 123456!Aa
+	   {
+    		"username": "gisaiashvili",
+    		"password": "123456!Aa"
+	   }
 
 - Run the project and if everything is cool you will see the Swagger Documentation.
 
