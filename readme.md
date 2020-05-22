@@ -24,9 +24,12 @@ Project is written in Microsofts latest technologies for 20/05/2020.
 -  Nswag
 -  MSSQL Server
 
+This is the test project. You wont be able see full functionality of Roullete here. The main purpose of this project was to show creators ability of coding and solving tasks. Still you will find it useful, there might be some good technical and architectural points.
+
 Trying to follow clean architecture and clean coding principles, several layers and projects are made.
 The main project that should be started is in Presentation layer, <b>RoulleteApi</b> (Rest API).
 There is two more projects in the solution that can be started, <b>BetConcurrencyTestClient</b> and <b>SignalRClientForJackpot</b>.
+
 
 ---
 
