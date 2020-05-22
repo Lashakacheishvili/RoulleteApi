@@ -48,12 +48,12 @@ There is two more projects in the solution that can be started, <b>BetConcurrenc
 - run "update-database" command in package manager console, if you use visual studio. 
   Don't forget startup project should be RoulleteApi, but db context is in RoulleteApi.Repository.Ef project.
 
-<b>Note</b>: There is just one user in database, and regisration functionality is not added for now.
+<b>Note</b>: There is just one user in database, and regisration functionality is not added for now. User credentials:
 
-	   {
-    		"username": "gisaiashvili",
-    		"password": "123456!Aa"
-	   }
+      {
+    	"username": "gisaiashvili",
+    	"password": "123456!Aa"
+      }
 
 - Run the project and if everything is cool you will see the Swagger Documentation.
 
