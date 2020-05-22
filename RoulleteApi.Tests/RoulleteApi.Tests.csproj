@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RoulleteApi.Common\RoulleteApi.Common.csproj" />
+    <ProjectReference Include="..\RoulleteApi.Core\RoulleteApi.Core.csproj" />
   </ItemGroup>
 
 </Project>

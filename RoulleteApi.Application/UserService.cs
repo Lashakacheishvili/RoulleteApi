@@ -137,7 +137,7 @@ namespace RoulleteApi.Application
                         .BadRequest("Not enough balance"));
             }
 
-            user.SubtractBetAmountFromBalance(betAmountInCents);
+            user.SubtractAmountFromBalance(betAmountInCents);
 
             var betAmountInMillyCents = betAmountInCents.ConvertCentsToMillyCents();
             var amountToPutInJackpot = betAmountInMillyCents * _amountPercentgeToPutInJackpot / 100;

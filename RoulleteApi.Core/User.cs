@@ -26,16 +26,24 @@ namespace RoulleteApi.Core
             GameHistories = new HashSet<GameHistory>();
         }
 
-        // I could add input validation here and throw custom error, and then handle it.
-        public void SubtractBetAmountFromBalance(long betAmountInCents)
+        public void SubtractAmountFromBalance(long betAmountInCents)
         {
+            if (betAmountInCents < 0)
+            {
+                throw new ArgumentException($"{betAmountInCents} is less than zero, choose positive number");
+            }
+
             BalanceInCents -= betAmountInCents;
             UpdatedAt = DateTime.UtcNow;
         }
 
-        // I could add input validation here and throw custom error, and then handle it.
         public void AddAmountToBalance(long amountToAddInCents)
         {
+            if (amountToAddInCents < 0)
+            {
+                throw new ArgumentException($"{amountToAddInCents} is less than zero, choose positive number");
+            }
+
             BalanceInCents += amountToAddInCents;
             UpdatedAt = DateTime.UtcNow;
         }
