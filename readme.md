@@ -1,6 +1,6 @@
 
   <h2>RouletteApi</h2>
-    Application created for Singular. You can see the actual task in <b>RoulleteApi/Additional Resources/NET Task</b> folder.
+    Application is created for "Company" as task project.
     <br />
 
  
@@ -57,7 +57,7 @@ There is two more projects in the solution that can be started, <b>BetConcurrenc
 
 - Run the project and if everything is cool you will see the Swagger Documentation.
 
-  You can also check for video instructions in <b>RoulleteApi\Additional Resources\Video Instructions</b>
+  You can also check for video instructions in <b>RoulleteApi/Additional Resources/Video Instructions</b>
    
 ---
 
