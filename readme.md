@@ -34,8 +34,8 @@ There is two more projects in the solution that can be started, <b>BetConcurrenc
 
 ## Prerequisites
 
--.Net core 3.1 and MSSQL SERVER should be installed. 
--You may need to change connection string, just target the server where you have permission to create database
+- .Net core 3.1 and MSSQL SERVER should be installed. 
+- You may need to change connection string, just target the server where you have permission to create database
 
 ---
 
