@@ -65,7 +65,7 @@ If you decide to test with postman you don't need to configure it yourself, just
 Basic flow to test:
 
 First of all you need to login and get access token.
-Getting access token is possible from <b>user/session</b> post endpoint, by passing Username: <b>gisaiashvili</b>, Password:<b>123456!Aa</b>
+Getting access token is possible from <b>user/session</b> post endpoint, by passing <b>Username</b>: gisaiashvili, <b>Password</b>:123456!Aa
 
 Tokens format is 'Bearer accessToken'. e.x. 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI...'
 If you are testing it from swagger click Authorize and paste token there, or add this token in Authorization header. Again, don't forget to add 'Bearer ' before token
