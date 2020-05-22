@@ -9,7 +9,7 @@
   </p>
   <br>  
   
-  ## Contents
+  ## Navigation
 
 - [About](#About)
 - [Installation](#installation)
@@ -47,7 +47,7 @@ There is two more projects in the solution that can be started, <b>BetConcurrenc
 - run "update-database" command in package manager console, if you use visual visual studio. 
   Don't forget startup project should be RoulleteApi, but db context is in RoulleteApi.Repository.Ef project.
 
-<b>Note</b>: There is just one user in database, and regisration functionality is not added for now. <b>Username:</b> gisaiashvili, <b>Password:</b>123456!Aa
+<b>Note</b>: There is just one user in database, and regisration functionality is not added for now. <b>Username:</b> gisaiashvili, <b>Password</b>: 123456!Aa
 
 - Run the project and if everything is cool you will see the Swagger Documentation.
 
@@ -67,7 +67,7 @@ Basic flow to test:
 First of all you need to login and get access token.
 Getting access token is possible from <b>user/session</b> post endpoint, by passing Username: <b>gisaiashvili</b>, Password:<b>123456!Aa</b>
 
-Tokens format is 'Bearer accessToken'. e.x. 'Bearer eydasdasjlkdj32oijd209dj239jd23d23d23nd92nvu8r934v3r98nr3'
+Tokens format is 'Bearer accessToken'. e.x. 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI...'
 If you are testing it from swagger click Authorize and paste token there, or add this token in Authorization header. Again, don't forget to add 'Bearer ' before token
 
 <b>Note:</b> The tokens life lasts for five minutes, 
@@ -77,6 +77,6 @@ If you are testing it from swagger click Authorize and paste token there, or add
 
 
 ## Author
-👤 **Giorgi Isaiashvili**
+🧔 **Giorgi Isaiashvili**
 
 - Linkedin: [Giorgi Isaiashvili](https://www.linkedin.com/in/isaiashvili/)
