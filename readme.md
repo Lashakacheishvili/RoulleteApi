@@ -2,7 +2,7 @@
 <p align="center">
   <h3>RouletteApi</h3>
   <p>
-    Application created for Singular. You can see the actual task in 'NET Task' folder.
+    Application created for Singular. You can see the actual task in <b>RoulleteApi/Additional Resources/NET Task</b> folder.
     <br />
 
  
@@ -57,7 +57,7 @@ There is two more projects in the solution that can be started, <b>BetConcurrenc
 
 ## Testing
 
-You can check testing instructions in <b>RoulleteApi\Additional Resources\Video Instructions</b>
+You can check testing instructions in <b>RoulleteApi/Additional Resources/Video Instructions</b>
 
 You can test it by swagger doc or postman.
 If you decide to test with postman you don't need to configure it yourself, just import json from Additional Resoures/Postman Test Collection folder.
