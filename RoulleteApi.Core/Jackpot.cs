@@ -23,6 +23,16 @@ namespace RoulleteApi.Core
         /// <param name="increaseAmountInMillyCents"></param>
         public void IncreaseJackpotAmount(long increaseAmountInMillyCents)
         {
+            if (increaseAmountInMillyCents < 0)
+            {
+                throw new ArgumentException($"{increaseAmountInMillyCents} is less than zero, choose positive number");
+            }
+
+            if (AmountInMillyCents > long.MaxValue - increaseAmountInMillyCents)
+            {
+                throw new ArgumentException($"{increaseAmountInMillyCents} is too large to store");
+            }
+
             AmountInMillyCents += increaseAmountInMillyCents;
             UpdatedAt = DateTime.UtcNow;
         }
