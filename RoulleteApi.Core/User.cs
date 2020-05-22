@@ -30,12 +30,14 @@ namespace RoulleteApi.Core
         public void SubtractBetAmountFromBalance(long betAmountInCents)
         {
             BalanceInCents -= betAmountInCents;
+            UpdatedAt = DateTime.UtcNow;
         }
 
         // I could add input validation here and throw custom error, and then handle it.
         public void AddAmountToBalance(long amountToAddInCents)
         {
             BalanceInCents += amountToAddInCents;
+            UpdatedAt = DateTime.UtcNow;
         }
     }
 }
