@@ -40,7 +40,7 @@ namespace RoulleteApi.Core
                 throw new InvalidCurrencyAmountException(amountToSubtractInCents, ExceptionMessages.ProvidedValueIsInvalidForCurrentOperation);
             }
 
-            if (amountToSubtractInCents > Math.Abs(long.MinValue) - Math.Abs(BalanceInCents))
+            if (BalanceInCents < long.MinValue + amountToSubtractInCents)
             {
                 throw new BalanceOverflowException(amountToSubtractInCents, ExceptionMessages.ValueIsTooLargeToSubtractBalance);
             }
