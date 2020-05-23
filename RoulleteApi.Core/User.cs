@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using RoulleteApi.Common.Exceptions;
+using RoulleteApi.Common.Resources;
 using System;
 using System.Collections.Generic;
 
@@ -27,14 +28,24 @@ namespace RoulleteApi.Core
             GameHistories = new HashSet<GameHistory>();
         }
 
-        public void SubtractAmountFromBalance(long betAmountInCents)
+        public User(long initialBalanceInCents) : this()
         {
-            if (betAmountInCents < 0)
+            BalanceInCents = initialBalanceInCents;
+        }
+
+        public void SubtractAmountFromBalance(long amountToSubtractInCents)
+        {
+            if (amountToSubtractInCents < 0)
             {
-                throw new InvalidBetAmountException(betAmountInCents, $"{betAmountInCents} is less than zero, choose positive number");
+                throw new InvalidAmountArumentException(amountToSubtractInCents, ExceptionMessages.ProvidedValueIsInvalidForCurrentOperation);
             }
 
-            BalanceInCents -= betAmountInCents;
+            if (amountToSubtractInCents > Math.Abs(long.MinValue) - Math.Abs(BalanceInCents))
+            {
+                throw new BalanceOverflowException(amountToSubtractInCents, ExceptionMessages.ValueIsTooLargeToSubtractBalance);
+            }
+
+            BalanceInCents -= amountToSubtractInCents;
             UpdatedAt = DateTime.UtcNow;
         }
 
@@ -42,7 +53,12 @@ namespace RoulleteApi.Core
         {
             if (amountToAddInCents < 0)
             {
-                throw new InvalidBetAmountException(amountToAddInCents, $"{amountToAddInCents} is less than zero, choose positive number");
+                throw new InvalidAmountArumentException(amountToAddInCents, ExceptionMessages.ProvidedValueIsInvalidForCurrentOperation);
+            }
+
+            if (BalanceInCents >= 0 && amountToAddInCents > long.MaxValue - BalanceInCents)
+            {
+                throw new BalanceOverflowException(amountToAddInCents, ExceptionMessages.ValueIsTooLargeToAddBalance);
             }
 
             BalanceInCents += amountToAddInCents;

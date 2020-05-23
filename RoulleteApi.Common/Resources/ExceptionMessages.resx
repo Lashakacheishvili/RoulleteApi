@@ -117,13 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BetAmountIsLessThanZero" xml:space="preserve">
-    <value>Bet amount is less than zero, choose positive number</value>
+  <data name="ProvidedValueIsInvalidForCurrentOperation" xml:space="preserve">
+    <value>Provided value is invalid for current operation</value>
   </data>
-  <data name="JackpotIncreaseAmountIsLessThanZero" xml:space="preserve">
-    <value>Jackpot increase amount is less than zero, choose positive number</value>
+  <data name="ValueIsTooLargeToAddBalance" xml:space="preserve">
+    <value>Value is too large to add balance</value>
   </data>
-  <data name="JackpotWillOverflow" xml:space="preserve">
-    <value>Jackpot increase amount is too large, data can be lost</value>
+  <data name="ValueIsTooLargeToAddJackpot" xml:space="preserve">
+    <value>Value is too too large to add jackpot</value>
+  </data>
+  <data name="ValueIsTooLargeToBet" xml:space="preserve">
+    <value>Value is too too large to bet</value>
+  </data>
+  <data name="ValueIsTooLargeToSubtractBalance" xml:space="preserve">
+    <value>Value is too large to subtract from balance</value>
   </data>
 </root>

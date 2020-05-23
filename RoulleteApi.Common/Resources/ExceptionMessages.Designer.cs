@@ -22,7 +22,7 @@ namespace RoulleteApi.Common.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ExceptionMessages {
+    public class ExceptionMessages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace RoulleteApi.Common.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RoulleteApi.Common.Resources.ExceptionMessages", typeof(ExceptionMessages).Assembly);
@@ -51,7 +51,7 @@ namespace RoulleteApi.Common.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,29 +61,47 @@ namespace RoulleteApi.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bet amount is less than zero, choose positive number.
+        ///   Looks up a localized string similar to Provided value is invalid for current operation.
         /// </summary>
-        internal static string BetAmountIsLessThanZero {
+        public static string ProvidedValueIsInvalidForCurrentOperation {
             get {
-                return ResourceManager.GetString("BetAmountIsLessThanZero", resourceCulture);
+                return ResourceManager.GetString("ProvidedValueIsInvalidForCurrentOperation", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Jackpot increase amount is less than zero, choose positive number.
+        ///   Looks up a localized string similar to Value is too large to add balance.
         /// </summary>
-        internal static string JackpotIncreaseAmountIsLessThanZero {
+        public static string ValueIsTooLargeToAddBalance {
             get {
-                return ResourceManager.GetString("JackpotIncreaseAmountIsLessThanZero", resourceCulture);
+                return ResourceManager.GetString("ValueIsTooLargeToAddBalance", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Jackpot increase amount is too large, data can be lost.
+        ///   Looks up a localized string similar to Value is too too large to add jackpot.
         /// </summary>
-        internal static string JackpotWillOverflow {
+        public static string ValueIsTooLargeToAddJackpot {
             get {
-                return ResourceManager.GetString("JackpotWillOverflow", resourceCulture);
+                return ResourceManager.GetString("ValueIsTooLargeToAddJackpot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value is too too large to bet.
+        /// </summary>
+        public static string ValueIsTooLargeToBet {
+            get {
+                return ResourceManager.GetString("ValueIsTooLargeToBet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value is too large to subtract from balance.
+        /// </summary>
+        public static string ValueIsTooLargeToSubtractBalance {
+            get {
+                return ResourceManager.GetString("ValueIsTooLargeToSubtractBalance", resourceCulture);
             }
         }
     }

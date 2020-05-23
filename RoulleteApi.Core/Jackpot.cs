@@ -1,5 +1,7 @@
 ﻿using RoulleteApi.Common.Exceptions;
+using RoulleteApi.Common.Resources;
 using System;
+using System.Resources;
 
 namespace RoulleteApi.Core
 {
@@ -26,12 +28,12 @@ namespace RoulleteApi.Core
         {
             if (increaseAmountInMillyCents < 0)
             {
-                throw new InvalidJackpotIncreaseAmountException(increaseAmountInMillyCents, $"{increaseAmountInMillyCents} is less than zero, choose positive number");
+                throw new InvalidAmountArumentException(increaseAmountInMillyCents, ExceptionMessages.ProvidedValueIsInvalidForCurrentOperation);
             }
 
             if (AmountInMillyCents > long.MaxValue - increaseAmountInMillyCents)
             {
-                throw new InvalidJackpotIncreaseAmountException(increaseAmountInMillyCents, $"{increaseAmountInMillyCents} is too large to store");
+                throw new JackpotOverflowException(increaseAmountInMillyCents, ExceptionMessages.ValueIsTooLargeToAddJackpot);
             }
 
             AmountInMillyCents += increaseAmountInMillyCents;
