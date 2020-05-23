@@ -56,7 +56,7 @@ namespace RoulleteApi.Core
                 throw new InvalidCurrencyAmountException(amountToAddInCents, ExceptionMessages.ProvidedValueIsInvalidForCurrentOperation);
             }
 
-            if (BalanceInCents >= 0 && amountToAddInCents > long.MaxValue - BalanceInCents)
+            if (BalanceInCents > 0 && amountToAddInCents > long.MaxValue - BalanceInCents)
             {
                 throw new BalanceOverflowException(amountToAddInCents, ExceptionMessages.ValueIsTooLargeToAddBalance);
             }
