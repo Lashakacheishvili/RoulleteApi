@@ -97,6 +97,15 @@ namespace RoulleteApi.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Value is too large to convert.
+        /// </summary>
+        public static string ValueIsTooLargeToConvert {
+            get {
+                return ResourceManager.GetString("ValueIsTooLargeToConvert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Value is too large to subtract from balance.
         /// </summary>
         public static string ValueIsTooLargeToSubtractBalance {

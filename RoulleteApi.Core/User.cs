@@ -37,7 +37,7 @@ namespace RoulleteApi.Core
         {
             if (amountToSubtractInCents < 0)
             {
-                throw new InvalidAmountArumentException(amountToSubtractInCents, ExceptionMessages.ProvidedValueIsInvalidForCurrentOperation);
+                throw new InvalidCurrencyAmountException(amountToSubtractInCents, ExceptionMessages.ProvidedValueIsInvalidForCurrentOperation);
             }
 
             if (amountToSubtractInCents > Math.Abs(long.MinValue) - Math.Abs(BalanceInCents))
@@ -53,7 +53,7 @@ namespace RoulleteApi.Core
         {
             if (amountToAddInCents < 0)
             {
-                throw new InvalidAmountArumentException(amountToAddInCents, ExceptionMessages.ProvidedValueIsInvalidForCurrentOperation);
+                throw new InvalidCurrencyAmountException(amountToAddInCents, ExceptionMessages.ProvidedValueIsInvalidForCurrentOperation);
             }
 
             if (BalanceInCents >= 0 && amountToAddInCents > long.MaxValue - BalanceInCents)

@@ -129,6 +129,9 @@
   <data name="ValueIsTooLargeToBet" xml:space="preserve">
     <value>Value is too too large to bet</value>
   </data>
+  <data name="ValueIsTooLargeToConvert" xml:space="preserve">
+    <value>Value is too large to convert</value>
+  </data>
   <data name="ValueIsTooLargeToSubtractBalance" xml:space="preserve">
     <value>Value is too large to subtract from balance</value>
   </data>

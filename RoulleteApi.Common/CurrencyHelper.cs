@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using RoulleteApi.Common.Exceptions;
+using RoulleteApi.Common.Resources;
+using System;
 
 namespace RoulleteApi.Common
 {
@@ -12,29 +12,29 @@ namespace RoulleteApi.Common
 
         public const long CentUnitInMillyCents = 100;
 
-        public static long ConvertCentsToMillyCents(this long targetValue)
+        public static long ConvertCentsToMillyCents(this long amountToConvertInCents)
         {
-            if (long.MaxValue / CentUnitInMillyCents < targetValue)
+            if (amountToConvertInCents < 0)
             {
-                throw new ArgumentException($"{targetValue} is too large to be converted in millycents");
+                throw new InvalidCurrencyAmountException(amountToConvertInCents, ExceptionMessages.ProvidedValueIsInvalidForCurrentOperation);
             }
 
-            if (targetValue < 0)
+            if (long.MaxValue / CentUnitInMillyCents < amountToConvertInCents)
             {
-                throw new ArgumentException($"{targetValue} is less than zero, take positive number");
+                throw new CurrencyOverflowException(amountToConvertInCents, ExceptionMessages.ValueIsTooLargeToConvert);
             }
 
-            return targetValue * CentUnitInMillyCents;
+            return amountToConvertInCents * CentUnitInMillyCents;
         }
 
-        public static long ConvertMillyCentsToCents(this long targetValue)
+        public static long ConvertMillyCentsToCents(this long amountToConvertInMillyCents)
         {
-            if (targetValue < 0)
+            if (amountToConvertInMillyCents < 0)
             {
-                throw new ArgumentException($"{targetValue} is less than zero, take positive number");
+                throw new InvalidCurrencyAmountException(amountToConvertInMillyCents, ExceptionMessages.ProvidedValueIsInvalidForCurrentOperation);
             }
 
-            return targetValue / CentUnitInMillyCents;
+            return amountToConvertInMillyCents / CentUnitInMillyCents;
         }
     }
 }

@@ -28,7 +28,7 @@ namespace RoulleteApi.Core
         {
             if (increaseAmountInMillyCents < 0)
             {
-                throw new InvalidAmountArumentException(increaseAmountInMillyCents, ExceptionMessages.ProvidedValueIsInvalidForCurrentOperation);
+                throw new InvalidCurrencyAmountException(increaseAmountInMillyCents, ExceptionMessages.ProvidedValueIsInvalidForCurrentOperation);
             }
 
             if (AmountInMillyCents > long.MaxValue - increaseAmountInMillyCents)

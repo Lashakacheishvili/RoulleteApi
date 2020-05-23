@@ -5,11 +5,11 @@ using System.Text;
 namespace RoulleteApi.Common.Exceptions
 {
     [Serializable]
-    public class InvalidAmountArumentException : ArgumentException
+    public class CurrencyOverflowException : OverflowException
     {
         public readonly long Amount;
 
-        public InvalidAmountArumentException(long amount, string message) : base(message)
+        public CurrencyOverflowException(long amount, string message) : base(message)
         {
             Amount = amount;
         }
